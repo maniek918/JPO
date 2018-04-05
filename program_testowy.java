@@ -1,53 +1,26 @@
-import java.util.ArrayList;
 public class program_testowy {
 
 	public static void main(String[] args) 
 	{
-		// obiekt klasy z konstruktorem domyslnym
-		punkt pkt1 = new punkt();
-		System.out.println("Opis punktu 1: ");
-		pkt1.punktm();
-		System.out.println("Masa punktu 1: " +pkt1.getmasa());
-		System.out.println("Glowny moment bezwladnosci punktu 1: "+pkt1.glMom());
-		System.out.println("Moment bezwladnosci z tw. Steinera punktu 1: "+pkt1.Stei(3));
-		//obiekt klasy z konstruktorem z parametrami
-		punkt pkt2 = new punkt(15);  
-		System.out.println("Opis punktu 2: ");
-		pkt2.punktm();
-		System.out.println("Masa punktu 2: "+pkt2.getmasa());
-		System.out.println("Glowny moment bezwladnosci punktu 2: "+pkt2.glMom());
-		System.out.println("Moment bezwladnosci z tw. Steinera pkt2: "+pkt2.Stei(4));
-		//zmiana masy pierwszego obiektu
-		pkt1.masa2(10); 
-		System.out.println("Opis punktu 1 ze zmieniona masa: ");
-		pkt1.punktm();
-		System.out.println("Masa punktu 1 ze zmieniona masa: "+pkt1.getmasa());
-		System.out.println("Glowny moment bezwladnosci punktu 1 ze zmieniona masa:  "+pkt1.glMom());
-		System.out.println("Moment bezwladnosci z tw. Steinera punktu 1 ze zmieniona masa: "+pkt1.Stei(3));
-		// stworzenie tablicy obiektow i zainicjowanie ich z wykorzystaniem petli
-		ArrayList<punkt> tablica_pkt = new ArrayList<punkt>();
-		ArrayList<Integer> tablica_mas = new ArrayList<Integer>();
-		int l_pkt=5;
-		tablica_mas.add(10);
-		tablica_mas.add(15);
-		tablica_mas.add(20);
-		tablica_mas.add(25);
-		tablica_mas.add(30);
-		
-		for(int p=0;p<l_pkt;p++) 
-		{
-		punkt punkt = new punkt(tablica_mas.get(p));
-		tablica_pkt.add(punkt);
+	 walec w1 = new walec(5, 12);
+	 kula k1 = new kula(6, 16);
+     pret pr1 = new pret(9, 12);
+     w1.opis();
+     k1.opis();
+	 pr1.opis();
+    punkt tab[] = new punkt[9];
+	 System.out.println("\nPETLE:\n");
+	 for(int x = 0; x <9 ; x = x+3)
+	{
+		 tab[x] = new walec((x+1)*2 , (x+1)*10);
+		 tab[x+1] = new kula((x+1)+10 , (x+1)*2);
+		 tab[x+2] = new pret((x+1)*3,(x+1)+2);
 		}
-		for(int p=0;p<l_pkt;p++) 
-		{
-			punkt punkt = tablica_pkt.get(p);
-			System.out.println("Opis: ");
-			pkt1.punktm();
-			System.out.println("Masa: "+punkt.getmasa());
-			System.out.println("Glowny moment bezwaldnosci:  "+punkt.glMom());
-			System.out.println("Moment bezwaldnosci z tw. Steinera: "+punkt.Stei(5));
-			}
+	  for(int x = 0; x <9 ; x++)
+	{
+      tab[x].opis();
+      System.out.println("Moment bezwladnosci przesuniety o 4 jednostki: " + tab[x].Stei(4) + "\n");
+		      }
+		      }
 	}
 
-}
